@@ -1,0 +1,21 @@
+name: qubo
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7.6
+  - pip:
+    - jupyter
+    - jupyterlab
+    - matplotlib
+    - astropy
+    - numpy
+    - tqdm
+    - dimod
+    - dwave-ocean-sdk
+    - networkx
+    - pandas
+    - qiskit==0.20.0
+    - scikit-learn
+    - scipy
+    - pytest
