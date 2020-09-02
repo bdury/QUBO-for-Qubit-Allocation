@@ -3,7 +3,7 @@ Uses the QUBO formalism to generate a cost function whose solutions are allocati
 of logical qubits from a quantum circuit to the physical qubits of a
 hardware graph. Solutions from the cost function are obtained using simulated
 annealing, as implemented in D-wave's `neal`. An investigation of how
-effective this method is at generating initial allocations is available here (https://arxiv.org/pdf/2009.00140.pdf).
+effective this method is at generating initial allocations is available here (https://arxiv.org/abs/2009.00140).
 Code was written by Bryan Dury ([@bdury](https://github.com/bdury)), but the paper is a product of both [@bdury](https://github.com/bdury)
 and [@glassnotes](https://github.com/glassnotes).
 
