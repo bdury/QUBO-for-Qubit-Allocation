@@ -10,7 +10,7 @@ from QUBOfuncs import *
 from itertools import product
 
 
-class Coefficient_Matrix(): # Tested
+class Coefficient_Matrix():
     def __init__(self, n_c, n_p, heur_1, heur_2, heur_3):
         # Assign heuristic matrices
         self.arr1 = heur_1

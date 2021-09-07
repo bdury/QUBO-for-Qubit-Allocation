@@ -26,6 +26,40 @@ import matplotlib.colors
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+from numpy import random as rd
+from random import sample
+from pathlib import Path
+
+
+
+def createcircuit(qbit, g1num, g2num):
+    '''
+    Function to create circuits for  arbitrary architectures, where we don't
+    care about the functionality since we're just testing capability of QUBO.
+    '''
+
+    # Create quantum circuit object for qbit number of qubits
+    qc = QuantumCircuit(qbit)
+
+    # Generate random one & two qubit gate assignments
+    g1 = rd.randint(0,qbit, g1num).tolist() # evenly (randomly) distr. single qubit gates
+    g2 = []
+    for _ in range(g2num):
+        q1,q2 = sample(range(qbit), 2)
+        g2.append((q1,q2))
+
+    # Put random gate assignments into Quantum Circuit Object
+    for gate in g1: qc.h(gate)
+    for gate in g2: qc.cx(gate[0], gate[-1])
+
+    print(qc.qasm())
+    # Export circuit into qasm file and save to file
+    loc = str(Path().resolve().parent / 'benchmarks' / '_newcirc')
+    print(loc)
+    with open(loc + "/{}QBT_{}g1_{}g2.txt".format(qbit,g1num,g2num), "w") as text_file:
+        text_file.write(qc.qasm())
+
+
 def grab_tket(arr, data=None):
     '''
     Given a tket data set, will extract a metric according to data string to a new array and return it.
